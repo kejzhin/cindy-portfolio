@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, MessageCircle, Phone, Award, CheckCircle2, Copy, Check } from 'lucide-react';
+import { Mail, MessageCircle, Phone, Award, CheckCircle2, Copy, Check, User } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
-
-// Generated image asset
-import heroPortrait from '../assets/images/hero_professional_portrait_1791753481153.jpg';
 
 interface HeroProps {
   onContactClick: () => void;
@@ -40,7 +37,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
               </p>
             </div>
 
-            {/* Direct Quick Action CTAs (No form - direct contact triggers) */}
+            {/* Direct Quick Action CTAs */}
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <a
                 href={`mailto:${contactInfo.email}`}
@@ -92,33 +89,21 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             </div>
           </div>
 
-          {/* Right Column: Portrait Visual */}
+          {/* Right Column: Blank Professional Placeholder Frame */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative max-w-sm w-full">
-              {/* Outer photo frame */}
-              <div className="relative rounded-2xl overflow-hidden border border-stone-200/90 bg-white shadow-md p-2">
-                <div className="relative aspect-square rounded-xl overflow-hidden bg-stone-100">
-                  <img
-                    src={heroPortrait}
-                    alt="Allan Vincent (Cindy) Balasbas portrait"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-top hover:scale-102 transition-transform duration-500"
-                    onError={(e) => {
-                      // Fallback in case of asset loading failure
-                      (e.target as HTMLElement).style.display = 'none';
-                    }}
-                  />
-                  {/* CSS Fallback container if image fails */}
-                  <div className="hidden only:flex w-full h-full items-center justify-center bg-stone-100 text-stone-500 p-6 text-center">
-                    <div>
-                      <p className="font-semibold text-stone-800">Allan Vincent Balasbas</p>
-                      <p className="text-xs text-stone-500 mt-1">Healthcare BPO Specialist</p>
-                    </div>
+              {/* Outer blank frame */}
+              <div className="relative rounded-2xl overflow-hidden border border-stone-200/90 bg-white shadow-md p-3">
+                <div className="relative aspect-square rounded-xl bg-stone-50 border border-dashed border-stone-300 flex flex-col items-center justify-center text-center p-8">
+                  <div className="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center text-stone-400 mb-3 shadow-inner">
+                    <User className="w-8 h-8" />
                   </div>
+                  <p className="text-sm font-semibold text-stone-700">Allan Vincent Balasbas</p>
+                  <p className="text-xs text-stone-400 mt-1">Professional Portfolio</p>
                 </div>
 
                 {/* Caption Bar */}
-                <div className="p-3 bg-white text-center">
+                <div className="p-3 bg-white text-center mt-1">
                   <p className="text-sm font-bold text-stone-900">Allan Vincent Balasbas</p>
                   <p className="text-xs text-stone-500">Healthcare BPO & Appointment Setting Specialist</p>
                 </div>
