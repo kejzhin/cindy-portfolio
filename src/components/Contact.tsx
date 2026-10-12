@@ -19,10 +19,10 @@ export const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-16 md:py-24 border-b border-[#E8E3D7] bg-[#F7F4EC] w-full overflow-hidden">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Centered Section Header */}
         <ScrollReveal delay={50}>
-          <div className="text-center max-w-lg mx-auto mb-10 sm:mb-14">
+          <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFEADF] border border-[#DDD5C5] text-[#7A6445] text-xs font-semibold mb-3 shadow-2xs">
               <Sparkles className="w-3.5 h-3.5 text-[#B88746]" />
               <span>Direct Channels</span>
@@ -36,29 +36,35 @@ export const Contact: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* Mobile-Optimized Redesigned Cards */}
-        <div className="space-y-5 sm:space-y-6">
+        {/* Responsive Grid: Balanced 3-Column on Desktop, Clean Stack on Mobile */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-7 items-stretch">
           {/* 1. Email Card */}
-          <ScrollReveal delay={100}>
-            <div className="bg-gradient-to-br from-[#FFFDF9] to-[#F5EFE6] rounded-2xl sm:rounded-3xl border border-[#E4DBC8] p-5 sm:p-7 shadow-xs hover:border-[#C4B79E] hover:shadow-lg transition-all duration-300 group">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-red-100/70 text-red-700 flex items-center justify-center shrink-0 border border-red-200/80 shadow-2xs group-hover:scale-105 transition-transform">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="text-[11px] font-bold text-[#8C642A] uppercase tracking-wider mb-0.5">
-                    Email Address
+          <ScrollReveal delay={100} className="h-full">
+            <div className="bg-gradient-to-br from-[#FFFDF9] to-[#F5EFE6] rounded-2xl sm:rounded-3xl border border-[#E4DBC8] p-6 lg:p-7 shadow-xs hover:border-[#C4B79E] hover:shadow-lg transition-all duration-300 group flex flex-col justify-between h-full">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-red-100/70 text-red-700 flex items-center justify-center shrink-0 border border-red-200/80 shadow-2xs group-hover:scale-105 transition-transform">
+                    <Mail className="w-5 h-5" />
                   </div>
-                  <div className="text-base sm:text-lg font-bold text-[#2D2820] select-all break-all tracking-tight">
+                  <div>
+                    <div className="text-[11px] font-bold text-[#8C642A] uppercase tracking-wider">
+                      Email Address
+                    </div>
+                  </div>
+                </div>
+
+                <div className="min-h-[2.75rem] flex items-center mb-2">
+                  <div className="text-base sm:text-lg font-bold text-[#2D2820] select-all break-all tracking-tight leading-snug">
                     {contactInfo.email}
                   </div>
-                  <p className="text-xs text-[#6B6255] mt-1 leading-relaxed">
-                    Direct inbox for proposals, contracts, and career opportunities.
-                  </p>
                 </div>
+
+                <p className="text-xs text-[#6B6255] leading-relaxed min-h-[2.5rem]">
+                  Direct inbox for proposals, contracts, and career opportunities.
+                </p>
               </div>
 
-              <div className="pt-3 border-t border-[#EAE2D2]">
+              <div className="pt-4 border-t border-[#EAE2D2] mt-6">
                 <a
                   href={`mailto:${contactInfo.email}`}
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 text-xs sm:text-sm font-bold text-[#FFFDF8] bg-[#2D2820] hover:bg-[#1C1813] rounded-xl transition-all shadow-sm active:scale-[0.98] cursor-pointer"
@@ -72,26 +78,32 @@ export const Contact: React.FC = () => {
           </ScrollReveal>
 
           {/* 2. WhatsApp & Phone Card */}
-          <ScrollReveal delay={180}>
-            <div className="bg-gradient-to-br from-[#FFFDF9] to-[#F5EFE6] rounded-2xl sm:rounded-3xl border border-[#E4DBC8] p-5 sm:p-7 shadow-xs hover:border-[#C4B79E] hover:shadow-lg transition-all duration-300 group">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-100/70 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200/80 shadow-2xs group-hover:scale-105 transition-transform">
-                  <MessageCircle className="w-5 h-5" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="text-[11px] font-bold text-[#8C642A] uppercase tracking-wider mb-0.5">
-                    WhatsApp & Mobile
+          <ScrollReveal delay={180} className="h-full">
+            <div className="bg-gradient-to-br from-[#FFFDF9] to-[#F5EFE6] rounded-2xl sm:rounded-3xl border border-[#E4DBC8] p-6 lg:p-7 shadow-xs hover:border-[#C4B79E] hover:shadow-lg transition-all duration-300 group flex flex-col justify-between h-full">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-100/70 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200/80 shadow-2xs group-hover:scale-105 transition-transform">
+                    <MessageCircle className="w-5 h-5" />
                   </div>
-                  <div className="text-base sm:text-lg font-bold text-[#2D2820] select-all break-words tracking-tight">
+                  <div>
+                    <div className="text-[11px] font-bold text-[#8C642A] uppercase tracking-wider">
+                      WhatsApp & Mobile
+                    </div>
+                  </div>
+                </div>
+
+                <div className="min-h-[2.75rem] flex items-center mb-2">
+                  <div className="text-base sm:text-lg font-bold text-[#2D2820] select-all break-words tracking-tight leading-snug">
                     {contactInfo.phone}
                   </div>
-                  <p className="text-xs text-[#6B6255] mt-1 leading-relaxed">
-                    Fastest response channel for voice calls, SMS, and WhatsApp chat.
-                  </p>
                 </div>
+
+                <p className="text-xs text-[#6B6255] leading-relaxed min-h-[2.5rem]">
+                  Fastest response channel for voice calls, SMS, and WhatsApp chat.
+                </p>
               </div>
 
-              <div className="pt-3 border-t border-[#EAE2D2]">
+              <div className="pt-4 border-t border-[#EAE2D2] mt-6">
                 <a
                   href={contactInfo.whatsappUrl}
                   target="_blank"
@@ -107,26 +119,32 @@ export const Contact: React.FC = () => {
           </ScrollReveal>
 
           {/* 3. LinkedIn Card */}
-          <ScrollReveal delay={260}>
-            <div className="bg-gradient-to-br from-[#FFFDF9] to-[#F5EFE6] rounded-2xl sm:rounded-3xl border border-[#E4DBC8] p-5 sm:p-7 shadow-xs hover:border-[#C4B79E] hover:shadow-lg transition-all duration-300 group">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-100/70 text-[#0A66C2] flex items-center justify-center shrink-0 border border-blue-200/80 shadow-2xs group-hover:scale-105 transition-transform">
-                  <LinkedInIcon className="w-5 h-5" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="text-[11px] font-bold text-[#8C642A] uppercase tracking-wider mb-0.5">
-                    LinkedIn Profile
+          <ScrollReveal delay={260} className="h-full">
+            <div className="bg-gradient-to-br from-[#FFFDF9] to-[#F5EFE6] rounded-2xl sm:rounded-3xl border border-[#E4DBC8] p-6 lg:p-7 shadow-xs hover:border-[#C4B79E] hover:shadow-lg transition-all duration-300 group flex flex-col justify-between h-full">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-blue-100/70 text-[#0A66C2] flex items-center justify-center shrink-0 border border-blue-200/80 shadow-2xs group-hover:scale-105 transition-transform">
+                    <LinkedInIcon className="w-5 h-5" />
                   </div>
-                  <div className="text-base sm:text-lg font-bold text-[#2D2820] truncate tracking-tight">
+                  <div>
+                    <div className="text-[11px] font-bold text-[#8C642A] uppercase tracking-wider">
+                      LinkedIn Profile
+                    </div>
+                  </div>
+                </div>
+
+                <div className="min-h-[2.75rem] flex items-center mb-2">
+                  <div className="text-base sm:text-lg font-bold text-[#2D2820] truncate tracking-tight leading-snug">
                     Allan Vincent Balasbas
                   </div>
-                  <p className="text-xs text-[#6B6255] mt-1 leading-relaxed">
-                    Connect on LinkedIn for endorsements and verified professional track record.
-                  </p>
                 </div>
+
+                <p className="text-xs text-[#6B6255] leading-relaxed min-h-[2.5rem]">
+                  Connect on LinkedIn for endorsements and verified professional track record.
+                </p>
               </div>
 
-              <div className="pt-3 border-t border-[#EAE2D2]">
+              <div className="pt-4 border-t border-[#EAE2D2] mt-6">
                 <a
                   href={contactInfo.linkedinUrl}
                   target="_blank"

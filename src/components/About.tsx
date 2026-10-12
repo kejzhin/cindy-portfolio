@@ -160,31 +160,33 @@ export const About: React.FC = () => {
             </div>
 
             {/* Desktop Version: 4-Column Balanced Grid */}
-            <div className="hidden sm:grid sm:grid-cols-4 gap-5 lg:gap-6 items-stretch">
+            <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 items-stretch">
               {metricCards.map((item, idx) => {
                 const IconComp = item.icon;
                 return (
                   <div
                     key={idx}
-                    className="bg-[#FAF7F2] rounded-xl border border-[#E8E2D5] p-5 flex flex-col justify-between hover:border-[#C4B79E] hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
+                    className="bg-[#FAF7F2] rounded-xl border border-[#E8E2D5] p-5 flex flex-col justify-between hover:border-[#C4B79E] hover:shadow-md hover:-translate-y-1 transition-all duration-300 group h-full"
                   >
                     <div>
                       <div className="flex items-center gap-2.5 mb-3">
                         <div className="w-8 h-8 rounded-lg bg-[#EFEADF] text-[#8C642A] flex items-center justify-center shrink-0 border border-[#DDD5C5] group-hover:scale-105 transition-transform duration-200">
                           <IconComp className="w-4 h-4" />
                         </div>
-                        <span className="text-xs font-bold text-[#8C642A] uppercase tracking-wider">
+                        <span className="text-xs font-bold text-[#8C642A] uppercase tracking-wider truncate">
                           {item.label}
                         </span>
                       </div>
 
-                      <div className="text-2xl lg:text-3xl font-extrabold text-[#2D2820] tracking-tight">
-                        {item.value}
+                      <div className="h-12 lg:h-14 flex items-center">
+                        <div className="text-xl md:text-2xl lg:text-2xl xl:text-[1.7rem] font-extrabold text-[#2D2820] tracking-tight whitespace-nowrap">
+                          {item.value}
+                        </div>
                       </div>
                     </div>
 
-                    <div className="mt-3 pt-2.5 border-t border-[#EAE4D6]/70">
-                      <p className="text-xs text-[#6B6255] leading-relaxed">
+                    <div className="mt-3 pt-3 border-t border-[#EAE4D6]/70 min-h-[2.5rem] flex items-center">
+                      <p className="text-xs text-[#6B6255] leading-snug">
                         {item.sub}
                       </p>
                     </div>
@@ -196,7 +198,7 @@ export const About: React.FC = () => {
         </ScrollReveal>
 
         {/* Core Strengths Grid with Staggered Scroll Animation */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 items-stretch">
           {coreStrengths.map((item, idx) => {
             const IconComponent = item.icon;
             return (
@@ -204,12 +206,15 @@ export const About: React.FC = () => {
                 <div
                   className="bg-[#FFFDF9] rounded-xl border border-[#E6E0D2] p-5 hover:border-[#C4B79E] hover:shadow-md hover:-translate-y-1 transition-all duration-300 shadow-xs flex flex-col justify-between h-full group"
                 >
-                  <div>
-                    <div className="w-10 h-10 rounded-lg bg-[#EFEADF] flex items-center justify-center text-[#7A6445] mb-4 border border-[#DDD5C5] group-hover:scale-105 transition-transform duration-200">
+                  <div className="flex flex-col h-full">
+                    <div className="w-10 h-10 rounded-lg bg-[#EFEADF] flex items-center justify-center text-[#7A6445] mb-4 border border-[#DDD5C5] group-hover:scale-105 transition-transform duration-200 shrink-0">
                       <IconComponent className="w-5 h-5 text-[#8C642A]" />
                     </div>
-                    <h4 className="text-sm font-bold text-[#2D2820] mb-2">{item.title}</h4>
-                    <p className="text-xs text-[#6B6255] leading-relaxed">{item.description}</p>
+                    {/* Consistent Title Height for Perfect Horizontal Alignment */}
+                    <div className="min-h-[2.75rem] flex items-start mb-2">
+                      <h4 className="text-sm font-bold text-[#2D2820] leading-snug">{item.title}</h4>
+                    </div>
+                    <p className="text-xs text-[#6B6255] leading-relaxed flex-1">{item.description}</p>
                   </div>
                 </div>
               </ScrollReveal>

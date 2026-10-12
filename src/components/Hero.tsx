@@ -45,18 +45,15 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             </ScrollReveal>
           </div>
 
-          {/* Right Column: Full-Body Professional Portrait Frame */}
+          {/* Right Column: Full-Body Professional Portrait */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <ScrollReveal delay={200} duration={700} className="w-full max-w-xs sm:max-w-sm">
-              <div className="relative w-full">
-                {/* Clean Full-Body Portrait without caption/shape box */}
-                <div className="relative rounded-3xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100 aspect-[3/4]">
-                  <img
-                    src={profileImg}
-                    alt="Allan Vincent Balasbas"
-                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+              <div className="relative w-full flex justify-center">
+                <img
+                  src={profileImg}
+                  alt="Allan Vincent Balasbas"
+                  className="w-full max-h-[520px] object-contain select-none transition-transform duration-300 hover:scale-[1.02]"
+                />
               </div>
             </ScrollReveal>
           </div>
