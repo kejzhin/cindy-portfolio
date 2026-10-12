@@ -4,7 +4,7 @@ interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
-  direction?: 'up' | 'down' | 'left' | 'right' | 'fade';
+  direction?: string;
   duration?: number;
   threshold?: number;
   once?: boolean;
@@ -14,7 +14,6 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   className = '',
   delay = 0,
-  direction = 'up',
   duration = 600,
   threshold = 0.1,
   once = true,
@@ -58,27 +57,6 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     };
   }, [threshold, once]);
 
-  // Initial and visible transform classes based on direction
-  const getDirectionClasses = () => {
-    if (isVisible) {
-      return 'opacity-100 translate-x-0 translate-y-0 scale-100';
-    }
-
-    switch (direction) {
-      case 'up':
-        return 'opacity-0 translate-y-7';
-      case 'down':
-        return 'opacity-0 -translate-y-7';
-      case 'left':
-        return 'opacity-0 translate-x-7';
-      case 'right':
-        return 'opacity-0 -translate-x-7';
-      case 'fade':
-      default:
-        return 'opacity-0';
-    }
-  };
-
   return (
     <div
       ref={elementRef}
@@ -87,7 +65,9 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
         transitionDelay: `${delay}ms`,
         transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
       }}
-      className={`transition-all will-change-[opacity,transform] ${getDirectionClasses()} ${className}`}
+      className={`transition-all will-change-[opacity,transform] ${
+        isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+      } ${className}`}
     >
       {children}
     </div>

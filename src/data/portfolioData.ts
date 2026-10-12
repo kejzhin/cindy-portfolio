@@ -266,14 +266,14 @@ export const portfolioData = {
       category: 'Sales & Real Estate',
     },
     {
-      id: 'cert-scenezoned-month1',
-      title: 'Top Sales Contributor (Month 1)',
+      id: 'cert-scenezoned-month9-1',
+      title: 'Top Sales Contributor (Month 9)',
       issuer: 'Empire East (Scenezone)',
       recipient: 'Allan Vincent V. Balasbas',
-      dateOrPeriod: 'Month 1',
+      dateOrPeriod: 'September 2020',
       highlightText: 'Sold 1 Unit (TCP ₱9,949,350.00)',
       details:
-        'Congratulations, You Have Been Scenezoned! Recognized as Top Sales Contributor for closing a luxury condominium unit with a Total Contract Price of ₱9,949,350.00 (Month 1).',
+        'Congratulations, You Have Been Scenezoned! Recognized as Top Sales Contributor for closing a luxury condominium unit with a Total Contract Price of ₱9,949,350.00.',
       badgeColor: 'indigo',
       category: 'Sales & Real Estate',
     },

@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Mail,
   MessageCircle,
-  Phone,
-  Copy,
-  Check,
   ExternalLink,
   Sparkles,
 } from 'lucide-react';
@@ -19,196 +16,127 @@ const LinkedInIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
 
 export const Contact: React.FC = () => {
   const { contactInfo } = portfolioData;
-  const [copiedKey, setCopiedKey] = useState<string | null>(null);
-
-  const handleCopy = (text: string, key: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedKey(key);
-    setTimeout(() => {
-      setCopiedKey(null);
-    }, 2000);
-  };
 
   return (
     <section id="contact" className="py-16 md:py-24 border-b border-[#E8E3D7] bg-[#F7F4EC] w-full overflow-hidden">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Centered & Balanced Section Header */}
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Centered Section Header */}
         <ScrollReveal delay={50}>
-          <div className="text-center max-w-xl mx-auto mb-10 sm:mb-12">
+          <div className="text-center max-w-lg mx-auto mb-10 sm:mb-14">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFEADF] border border-[#DDD5C5] text-[#7A6445] text-xs font-semibold mb-3 shadow-2xs">
               <Sparkles className="w-3.5 h-3.5 text-[#B88746]" />
               <span>Direct Channels</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#2D2820]">
-              Contact Information
+              Get in Touch
             </h2>
             <p className="mt-2.5 text-[#6B6255] text-sm sm:text-base leading-relaxed">
-              Reach out directly via email, WhatsApp, mobile, or LinkedIn. Instant response guaranteed for client inquiries and healthcare roles.
+              Reach out directly for proposals, job inquiries, and healthcare leadership opportunities.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Direct Channel Cards - Clean Stacked Layout with Scroll Reveal */}
-        <div className="space-y-4">
+        {/* Mobile-Optimized Redesigned Cards */}
+        <div className="space-y-5 sm:space-y-6">
           {/* 1. Email Card */}
           <ScrollReveal delay={100}>
-            <div className="bg-[#FFFDF9] rounded-2xl border border-[#E6E0D2] p-5 sm:p-6 shadow-xs hover:border-[#C4B79E] hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex items-start gap-3.5 min-w-0">
-                  <div className="w-11 h-11 rounded-xl bg-red-50 text-red-600 flex items-center justify-center shrink-0 border border-red-100">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="text-[11px] font-bold text-[#8C642A] uppercase tracking-wider">
-                      Email Address
-                    </div>
-                    <div className="text-base sm:text-lg font-bold text-[#2D2820] select-all break-all mt-0.5">
-                      {contactInfo.email}
-                    </div>
-                    <p className="text-xs text-[#6B6255] mt-1">
-                      Direct inbox for proposals, job inquiries, and contract terms.
-                    </p>
-                  </div>
+            <div className="bg-gradient-to-br from-[#FFFDF9] to-[#F5EFE6] rounded-2xl sm:rounded-3xl border border-[#E4DBC8] p-5 sm:p-7 shadow-xs hover:border-[#C4B79E] hover:shadow-lg transition-all duration-300 group">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-red-100/70 text-red-700 flex items-center justify-center shrink-0 border border-red-200/80 shadow-2xs group-hover:scale-105 transition-transform">
+                  <Mail className="w-5 h-5" />
                 </div>
-
-                <div className="flex items-center gap-2 shrink-0 pt-1 sm:pt-0">
-                  <button
-                    type="button"
-                    onClick={() => handleCopy(contactInfo.email, 'email')}
-                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 text-xs font-semibold text-[#4A4237] bg-[#EFEADF] hover:bg-[#E4DDCF] rounded-lg transition-colors cursor-pointer border border-[#DDD5C5] active:scale-95"
-                    title="Copy Email"
-                  >
-                    {copiedKey === 'email' ? (
-                      <>
-                        <Check className="w-3.5 h-3.5 text-emerald-600" />
-                        <span className="text-emerald-700 font-bold">Copied</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3.5 h-3.5 text-[#7A6445]" />
-                        <span>Copy</span>
-                      </>
-                    )}
-                  </button>
-
-                  <a
-                    href={`mailto:${contactInfo.email}`}
-                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-xs font-bold text-[#FFFDF8] bg-[#2D2820] hover:bg-[#1C1813] rounded-lg transition-colors shadow-xs active:scale-95"
-                  >
-                    <span>Send Email</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                <div className="min-w-0 flex-1">
+                  <div className="text-[11px] font-bold text-[#8C642A] uppercase tracking-wider mb-0.5">
+                    Email Address
+                  </div>
+                  <div className="text-base sm:text-lg font-bold text-[#2D2820] select-all break-all tracking-tight">
+                    {contactInfo.email}
+                  </div>
+                  <p className="text-xs text-[#6B6255] mt-1 leading-relaxed">
+                    Direct inbox for proposals, contracts, and career opportunities.
+                  </p>
                 </div>
+              </div>
+
+              <div className="pt-3 border-t border-[#EAE2D2]">
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 text-xs sm:text-sm font-bold text-[#FFFDF8] bg-[#2D2820] hover:bg-[#1C1813] rounded-xl transition-all shadow-sm active:scale-[0.98] cursor-pointer"
+                >
+                  <Mail className="w-4 h-4 text-[#F2DCB3]" />
+                  <span>Send Email Directly</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+                </a>
               </div>
             </div>
           </ScrollReveal>
 
           {/* 2. WhatsApp & Phone Card */}
-          <ScrollReveal delay={160}>
-            <div className="bg-[#FFFDF9] rounded-2xl border border-[#E6E0D2] p-5 sm:p-6 shadow-xs hover:border-[#C4B79E] hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex items-start gap-3.5 min-w-0">
-                  <div className="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
-                    <MessageCircle className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="text-[11px] font-bold text-[#8C642A] uppercase tracking-wider">
-                      WhatsApp & Mobile
-                    </div>
-                    <div className="text-base sm:text-lg font-bold text-[#2D2820] select-all break-words mt-0.5">
-                      {contactInfo.phone}
-                    </div>
-                    <p className="text-xs text-[#6B6255] mt-1">
-                      Fastest response channel for voice calls, SMS, and WhatsApp chat.
-                    </p>
-                  </div>
+          <ScrollReveal delay={180}>
+            <div className="bg-gradient-to-br from-[#FFFDF9] to-[#F5EFE6] rounded-2xl sm:rounded-3xl border border-[#E4DBC8] p-5 sm:p-7 shadow-xs hover:border-[#C4B79E] hover:shadow-lg transition-all duration-300 group">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-100/70 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200/80 shadow-2xs group-hover:scale-105 transition-transform">
+                  <MessageCircle className="w-5 h-5" />
                 </div>
-
-                <div className="flex items-center gap-2 shrink-0 pt-1 sm:pt-0">
-                  <button
-                    type="button"
-                    onClick={() => handleCopy(contactInfo.phoneRaw, 'phone')}
-                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 text-xs font-semibold text-[#4A4237] bg-[#EFEADF] hover:bg-[#E4DDCF] rounded-lg transition-colors cursor-pointer border border-[#DDD5C5] active:scale-95"
-                    title="Copy Phone"
-                  >
-                    {copiedKey === 'phone' ? (
-                      <>
-                        <Check className="w-3.5 h-3.5 text-emerald-600" />
-                        <span className="text-emerald-700 font-bold">Copied</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3.5 h-3.5 text-[#7A6445]" />
-                        <span>Copy</span>
-                      </>
-                    )}
-                  </button>
-
-                  <a
-                    href={contactInfo.whatsappUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors shadow-xs active:scale-95"
-                  >
-                    <span>WhatsApp</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                <div className="min-w-0 flex-1">
+                  <div className="text-[11px] font-bold text-[#8C642A] uppercase tracking-wider mb-0.5">
+                    WhatsApp & Mobile
+                  </div>
+                  <div className="text-base sm:text-lg font-bold text-[#2D2820] select-all break-words tracking-tight">
+                    {contactInfo.phone}
+                  </div>
+                  <p className="text-xs text-[#6B6255] mt-1 leading-relaxed">
+                    Fastest response channel for voice calls, SMS, and WhatsApp chat.
+                  </p>
                 </div>
+              </div>
+
+              <div className="pt-3 border-t border-[#EAE2D2]">
+                <a
+                  href={contactInfo.whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition-all shadow-sm active:scale-[0.98] cursor-pointer"
+                >
+                  <MessageCircle className="w-4 h-4 text-emerald-100" />
+                  <span>Open WhatsApp Chat</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                </a>
               </div>
             </div>
           </ScrollReveal>
 
           {/* 3. LinkedIn Card */}
-          <ScrollReveal delay={220}>
-            <div className="bg-[#FFFDF9] rounded-2xl border border-[#E6E0D2] p-5 sm:p-6 shadow-xs hover:border-[#C4B79E] hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex items-start gap-3.5 min-w-0">
-                  <div className="w-11 h-11 rounded-xl bg-blue-50 text-[#0A66C2] flex items-center justify-center shrink-0 border border-blue-100">
-                    <LinkedInIcon className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="text-[11px] font-bold text-[#8C642A] uppercase tracking-wider">
-                      LinkedIn Profile
-                    </div>
-                    <div className="text-base sm:text-lg font-bold text-[#2D2820] truncate mt-0.5">
-                      Allan Vincent Balasbas
-                    </div>
-                    <p className="text-xs text-[#6B6255] mt-1">
-                      Connect on LinkedIn for endorsements and professional track record.
-                    </p>
-                  </div>
+          <ScrollReveal delay={260}>
+            <div className="bg-gradient-to-br from-[#FFFDF9] to-[#F5EFE6] rounded-2xl sm:rounded-3xl border border-[#E4DBC8] p-5 sm:p-7 shadow-xs hover:border-[#C4B79E] hover:shadow-lg transition-all duration-300 group">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-blue-100/70 text-[#0A66C2] flex items-center justify-center shrink-0 border border-blue-200/80 shadow-2xs group-hover:scale-105 transition-transform">
+                  <LinkedInIcon className="w-5 h-5" />
                 </div>
-
-                <div className="flex items-center gap-2 shrink-0 pt-1 sm:pt-0">
-                  <button
-                    type="button"
-                    onClick={() => handleCopy(contactInfo.linkedinUrl, 'linkedin')}
-                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 text-xs font-semibold text-[#4A4237] bg-[#EFEADF] hover:bg-[#E4DDCF] rounded-lg transition-colors cursor-pointer border border-[#DDD5C5] active:scale-95"
-                    title="Copy LinkedIn Link"
-                  >
-                    {copiedKey === 'linkedin' ? (
-                      <>
-                        <Check className="w-3.5 h-3.5 text-emerald-600" />
-                        <span className="text-emerald-700 font-bold">Copied</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3.5 h-3.5 text-[#7A6445]" />
-                        <span>Copy Link</span>
-                      </>
-                    )}
-                  </button>
-
-                  <a
-                    href={contactInfo.linkedinUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-xs font-bold text-white bg-[#0A66C2] hover:bg-[#004182] rounded-lg transition-colors shadow-xs active:scale-95"
-                  >
-                    <span>LinkedIn</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                <div className="min-w-0 flex-1">
+                  <div className="text-[11px] font-bold text-[#8C642A] uppercase tracking-wider mb-0.5">
+                    LinkedIn Profile
+                  </div>
+                  <div className="text-base sm:text-lg font-bold text-[#2D2820] truncate tracking-tight">
+                    Allan Vincent Balasbas
+                  </div>
+                  <p className="text-xs text-[#6B6255] mt-1 leading-relaxed">
+                    Connect on LinkedIn for endorsements and verified professional track record.
+                  </p>
                 </div>
+              </div>
+
+              <div className="pt-3 border-t border-[#EAE2D2]">
+                <a
+                  href={contactInfo.linkedinUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 text-xs sm:text-sm font-bold text-white bg-[#0A66C2] hover:bg-[#004182] rounded-xl transition-all shadow-sm active:scale-[0.98] cursor-pointer"
+                >
+                  <LinkedInIcon className="w-4 h-4 text-blue-100" />
+                  <span>View LinkedIn Profile</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                </a>
               </div>
             </div>
           </ScrollReveal>

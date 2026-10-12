@@ -52,17 +52,8 @@ export const Certifications: React.FC = () => {
                         alt={cert.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-70 transition-opacity" />
                       <div className="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-full bg-black/50 border border-white/30 flex items-center justify-center text-[#F2DCB3] group-hover:scale-110 transition-transform duration-200 backdrop-blur-xs">
                         <Trophy className="w-3.5 h-3.5" />
-                      </div>
-                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white z-10">
-                        <span className="text-[10px] font-mono tracking-wider px-2.5 py-0.5 rounded bg-black/70 border border-white/25 uppercase">
-                          {cert.category}
-                        </span>
-                        <span className="text-[10px] font-mono text-[#F2DCB3] font-semibold bg-black/70 px-2 py-0.5 rounded border border-white/25">
-                          {cert.dateOrPeriod}
-                        </span>
                       </div>
                     </div>
 
@@ -80,13 +71,6 @@ export const Certifications: React.FC = () => {
                         {cert.details}
                       </p>
                     </div>
-                  </div>
-
-                  {/* Footer with key highlight */}
-                  <div className="mt-5 pt-3.5 border-t border-[#EAE4D6] flex items-center justify-between">
-                    <span className="text-xs font-semibold text-[#8C642A] bg-[#FAF5EB] px-2.5 py-1 rounded-md border border-[#E8DEC8]">
-                      {cert.highlightText}
-                    </span>
                   </div>
                 </div>
               </ScrollReveal>
