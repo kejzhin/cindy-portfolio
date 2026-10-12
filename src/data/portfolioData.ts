@@ -20,8 +20,6 @@ export interface SkillItem {
 export interface ToolItem {
   name: string;
   category: string;
-  description: string;
-  badge: string;
 }
 
 export interface CertificationItem {
@@ -34,6 +32,7 @@ export interface CertificationItem {
   details: string;
   badgeColor: string;
   category: 'Healthcare BPO' | 'Sales & Real Estate';
+  imagePath?: string;
 }
 
 export const portfolioData = {
@@ -190,62 +189,42 @@ export const portfolioData = {
     {
       name: 'Salesforce',
       category: 'CRM & Pipeline',
-      description: 'Customer relationship management, lead tracking, call logging, and patient record workflows.',
-      badge: 'Advanced',
     },
     {
       name: 'Slack',
       category: 'Internal Comms',
-      description: 'Real-time team collaboration, operational handoffs, and project communication.',
-      badge: 'Proficient',
     },
     {
       name: 'Dropbox',
       category: 'Cloud Storage',
-      description: 'Secure document storage, chart dispatching, and file sharing management.',
-      badge: 'Proficient',
     },
     {
       name: 'Gmail & Google Workspace',
       category: 'Email & Documents',
-      description: 'Professional email management, template authoring, and spreadsheet coordination.',
-      badge: 'Expert',
     },
     {
       name: 'Canva',
       category: 'Visual Design',
-      description: 'Creating professional marketing materials, property presentations, and flyers.',
-      badge: 'Proficient',
     },
     {
       name: 'Microsoft Teams',
       category: 'Video & Collaboration',
-      description: 'Enterprise voice meetings, group messaging, and multi-channel team synchronizations.',
-      badge: 'Proficient',
     },
     {
       name: 'Zoom',
       category: 'Conferencing',
-      description: 'Virtual meetings, client consultations, and remote training sessions.',
-      badge: 'Proficient',
     },
     {
       name: 'Cisco Webex',
       category: 'Enterprise Telephony',
-      description: 'High-reliability VoIP call management, inbound/outbound queue handling.',
-      badge: 'Proficient',
     },
     {
       name: 'EMR (OPM)',
       category: 'Healthcare Software',
-      description: 'Optum Provider Management and Electronic Medical Records chart retrieval system.',
-      badge: 'Specialized',
     },
     {
       name: 'Talkdesk',
       category: 'Cloud Contact Center',
-      description: 'Enterprise cloud contact center platform for high-volume inbound queue routing and outbound calling.',
-      badge: 'Proficient',
     },
   ] as ToolItem[],
 
@@ -291,10 +270,10 @@ export const portfolioData = {
       title: 'Top Sales Contributor (Month 1)',
       issuer: 'Empire East (Scenezone)',
       recipient: 'Allan Vincent V. Balasbas',
-      dateOrPeriod: 'September 2020',
+      dateOrPeriod: 'Month 1',
       highlightText: 'Sold 1 Unit (TCP ₱9,949,350.00)',
       details:
-        'Congratulations, You Have Been Scenezoned! Recognized as Top Sales Contributor for closing a luxury condominium unit with a Total Contract Price of ₱9,949,350.00.',
+        'Congratulations, You Have Been Scenezoned! Recognized as Top Sales Contributor for closing a luxury condominium unit with a Total Contract Price of ₱9,949,350.00 (Month 1).',
       badgeColor: 'indigo',
       category: 'Sales & Real Estate',
     },

@@ -1,186 +1,173 @@
 import React, { useState } from 'react';
-import { Award, CheckCircle2, ExternalLink, X, ShieldCheck, Trophy, Sparkles } from 'lucide-react';
+import { Award, ExternalLink, X, ShieldCheck, Trophy, Sparkles, CheckCircle2 } from 'lucide-react';
 import { portfolioData, CertificationItem } from '../data/portfolioData';
+import { ScrollReveal } from './ScrollReveal';
+
+import cert1Img from '../assets/images/cert1.jpg';
+import cert2Img from '../assets/images/cert2.jpg';
+import cert3Img from '../assets/images/cert3.jpg';
+import cert4Img from '../assets/images/cert4.jpg';
+import cert5Img from '../assets/images/cert5.jpg';
+
+const certImages = [cert1Img, cert2Img, cert3Img, cert4Img, cert5Img];
 
 export const Certifications: React.FC = () => {
   const { certifications } = portfolioData;
   const [selectedCert, setSelectedCert] = useState<CertificationItem | null>(null);
-  const [activeCategory, setActiveCategory] = useState<'All' | 'Healthcare BPO' | 'Sales & Real Estate'>('All');
-
-  const filteredCerts = certifications.filter((cert) => {
-    if (activeCategory === 'All') return true;
-    return cert.category === activeCategory;
-  });
 
   return (
-    <section id="certifications" className="py-16 md:py-20 border-b border-stone-200 bg-stone-50/50">
+    <section id="certifications" className="py-16 md:py-24 border-b border-[#E8E3D7] bg-[#F7F4EC]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-stone-900 text-balance">
+        {/* Centered & Beautifully Aligned Header */}
+        <ScrollReveal delay={50}>
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFEADF] border border-[#DDD5C5] text-[#7A6445] text-xs font-semibold mb-3 shadow-2xs">
+              <Trophy className="w-3.5 h-3.5 text-[#B88746]" />
+              <span>Honors & Recognitions</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#2D2820]">
               Certifications & Achievements
             </h2>
-            <p className="mt-2 text-stone-600 text-base leading-relaxed">
-              Official recognitions earned across high-volume healthcare appointment campaigns and condominium property sales.
+            <p className="mt-3 text-[#6B6255] text-sm sm:text-base leading-relaxed">
+              Official recognitions earned across high-volume healthcare appointment campaigns and multi-million property transactions.
             </p>
           </div>
+        </ScrollReveal>
 
-          {/* Filter Pills */}
-          <div className="inline-flex items-center gap-1 p-1 bg-stone-100 rounded-lg border border-stone-200 self-start md:self-auto">
-            <button
-              type="button"
-              onClick={() => setActiveCategory('All')}
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-md transition-colors whitespace-nowrap shrink-0 ${
-                activeCategory === 'All'
-                  ? 'bg-white text-stone-900 shadow-xs'
-                  : 'text-stone-600 hover:text-stone-900'
-              }`}
-            >
-              All Honors ({certifications.length})
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveCategory('Healthcare BPO')}
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-md transition-colors whitespace-nowrap shrink-0 ${
-                activeCategory === 'Healthcare BPO'
-                  ? 'bg-white text-stone-900 shadow-xs'
-                  : 'text-stone-600 hover:text-stone-900'
-              }`}
-            >
-              Healthcare BPO (2)
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveCategory('Sales & Real Estate')}
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-md transition-colors whitespace-nowrap shrink-0 ${
-                activeCategory === 'Sales & Real Estate'
-                  ? 'bg-white text-stone-900 shadow-xs'
-                  : 'text-stone-600 hover:text-stone-900'
-              }`}
-            >
-              Real Estate Sales (3)
-            </button>
-          </div>
-        </div>
-
-        {/* Certifications Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCerts.map((cert) => (
-            <div
-              key={cert.id}
-              className="bg-white rounded-2xl border border-stone-200/90 p-6 flex flex-col justify-between hover:border-stone-300 hover:shadow-md transition-all group"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="text-xs font-semibold text-stone-500 bg-stone-100 px-2.5 py-0.5 rounded">
-                    {cert.category}
-                  </span>
-                  <span className="text-xs font-mono text-stone-500">{cert.dateOrPeriod}</span>
-                </div>
-
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="w-9 h-9 rounded-lg bg-amber-500/10 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
-                    <Trophy className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h3 className="text-base font-bold text-stone-900 group-hover:text-amber-800 transition-colors leading-snug">
-                      {cert.title}
-                    </h3>
-                    <p className="text-xs text-stone-500 mt-0.5">{cert.issuer}</p>
-                  </div>
-                </div>
-
-                <div className="my-3 py-2 px-3 rounded-lg bg-amber-50/70 border border-amber-200/50">
-                  <p className="text-xs font-semibold text-amber-900">{cert.highlightText}</p>
-                </div>
-
-                <p className="text-xs text-stone-600 leading-relaxed line-clamp-3">
-                  {cert.details}
-                </p>
-              </div>
-
-              <div className="pt-5 mt-5 border-t border-stone-100 flex items-center justify-between">
-                <span className="text-[11px] text-stone-400">Awarded to {cert.recipient}</span>
-                <button
-                  type="button"
+        {/* Re-aligned Grid of Real Certificate Cards with Staggered Scroll Reveal */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 items-stretch">
+          {certifications.map((cert, idx) => {
+            const certImg = certImages[idx % certImages.length];
+            return (
+              <ScrollReveal key={cert.id} delay={100 + idx * 100} className="h-full">
+                <div
                   onClick={() => setSelectedCert(cert)}
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-stone-900 hover:text-amber-800 transition-colors"
+                  className="bg-[#FFFDF9] rounded-2xl border border-[#E6E0D2] p-5 sm:p-6 flex flex-col justify-between shadow-xs hover:border-[#C4B79E] hover:shadow-lg hover:-translate-y-1.5 active:scale-[0.99] transition-all duration-300 group cursor-pointer h-full"
                 >
-                  <span>Details</span>
-                  <ExternalLink className="w-3 h-3" />
-                </button>
-              </div>
-            </div>
-          ))}
+                  <div>
+                    {/* Certificate Visual Image Display */}
+                    <div className="w-full h-48 sm:h-52 rounded-xl overflow-hidden relative mb-5 shadow-sm border border-[#C9A96E]/40 group-hover:border-[#DFBE82] group-hover:shadow-md transition-all duration-300 bg-[#231E18]">
+                      <img
+                        src={certImg}
+                        alt={cert.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-70 transition-opacity" />
+                      <div className="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-full bg-black/50 border border-white/30 flex items-center justify-center text-[#F2DCB3] group-hover:scale-110 transition-transform duration-200 backdrop-blur-xs">
+                        <Trophy className="w-3.5 h-3.5" />
+                      </div>
+                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white z-10">
+                        <span className="text-[10px] font-mono tracking-wider px-2.5 py-0.5 rounded bg-black/70 border border-white/25 uppercase">
+                          {cert.category}
+                        </span>
+                        <span className="text-[10px] font-mono text-[#F2DCB3] font-semibold bg-black/70 px-2 py-0.5 rounded border border-white/25">
+                          {cert.dateOrPeriod}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Text Details Area */}
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#EFEADF] text-[#7A6445] border border-[#DFD6C3]">
+                          {cert.category}
+                        </span>
+                      </div>
+                      <h3 className="text-base sm:text-lg font-bold text-[#2D2820] tracking-tight leading-snug group-hover:text-[#8C642A] transition-colors">
+                        {cert.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#665D4F] leading-relaxed line-clamp-2">
+                        {cert.details}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Footer with key highlight */}
+                  <div className="mt-5 pt-3.5 border-t border-[#EAE4D6] flex items-center justify-between">
+                    <span className="text-xs font-semibold text-[#8C642A] bg-[#FAF5EB] px-2.5 py-1 rounded-md border border-[#E8DEC8]">
+                      {cert.highlightText}
+                    </span>
+                  </div>
+                </div>
+              </ScrollReveal>
+            );
+          })}
         </div>
 
-        {/* Modal for detailed inspection of certificate */}
-        {selectedCert && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-stone-950/60 p-4 backdrop-blur-xs"
-            onClick={() => setSelectedCert(null)}
-          >
+        {/* Certificate Inspection Modal */}
+        {selectedCert && (() => {
+          const selectedIdx = certifications.findIndex(c => c.id === selectedCert.id);
+          const activeCertImg = certImages[selectedIdx >= 0 ? selectedIdx % certImages.length : 0];
+          return (
             <div
-              className="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-stone-200 relative animate-in fade-in zoom-in-95 duration-200"
-              onClick={(e) => e.stopPropagation()}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-[#211C15]/75 p-4 backdrop-blur-xs transition-opacity duration-300"
+              onClick={() => setSelectedCert(null)}
             >
-              <button
-                type="button"
-                onClick={() => setSelectedCert(null)}
-                className="absolute top-5 right-5 text-stone-400 hover:text-stone-700 p-1 rounded-md"
-                aria-label="Close modal"
+              <div
+                className="bg-[#FFFDF9] rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-[#DED7C8] relative max-h-[92vh] overflow-y-auto transform transition-all duration-300 scale-100"
+                onClick={(e) => e.stopPropagation()}
               >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-800 mb-2">
-                <ShieldCheck className="w-4 h-4 text-amber-600" />
-                <span>Verified Achievement Record</span>
-              </div>
-
-              <h3 className="text-xl font-bold text-stone-900 mb-1">
-                {selectedCert.title}
-              </h3>
-              <p className="text-xs text-stone-500 mb-4">
-                Issuing Organization: <strong className="text-stone-800">{selectedCert.issuer}</strong>
-              </p>
-
-              <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-2 mb-4 text-xs">
-                <div className="flex justify-between py-1 border-b border-stone-200/60">
-                  <span className="text-stone-500">Recipient Name</span>
-                  <span className="font-semibold text-stone-900">{selectedCert.recipient}</span>
-                </div>
-                <div className="flex justify-between py-1 border-b border-stone-200/60">
-                  <span className="text-stone-500">Performance Period</span>
-                  <span className="font-semibold text-stone-900">{selectedCert.dateOrPeriod}</span>
-                </div>
-                <div className="flex justify-between py-1 border-b border-stone-200/60">
-                  <span className="text-stone-500">Achievement Metric</span>
-                  <span className="font-bold text-amber-900">{selectedCert.highlightText}</span>
-                </div>
-                <div className="flex justify-between py-1">
-                  <span className="text-stone-500">Industry Track</span>
-                  <span className="font-semibold text-stone-900">{selectedCert.category}</span>
-                </div>
-              </div>
-
-              <p className="text-xs text-stone-700 leading-relaxed mb-6">
-                {selectedCert.details}
-              </p>
-
-              <div className="flex items-center justify-end">
                 <button
                   type="button"
                   onClick={() => setSelectedCert(null)}
-                  className="px-4 py-2 bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold rounded-lg transition-colors"
+                  className="absolute top-5 right-5 text-[#8C8273] hover:text-[#2D2820] p-1.5 rounded-lg hover:bg-[#F2ECE0] transition-colors cursor-pointer z-20"
+                  aria-label="Close modal"
                 >
-                  Close Record
+                  <X className="w-5 h-5" />
                 </button>
+
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#7A5B27] mb-2">
+                  <ShieldCheck className="w-4 h-4 text-[#A57834]" />
+                  <span>Official Certificate Record</span>
+                </div>
+
+                {/* Large Certificate Image Preview Display */}
+                <div className="w-full h-72 sm:h-96 rounded-xl overflow-hidden relative my-4 border-2 border-[#DFBE82]/50 shadow-xl bg-black/90 flex items-center justify-center">
+                  <img
+                    src={activeCertImg}
+                    alt={selectedCert.title}
+                    className="w-full h-full object-contain"
+                  />
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 flex items-center justify-between text-white text-xs">
+                    <span className="font-semibold text-[#F2DCB3]">{selectedCert.issuer}</span>
+                    <span className="font-mono text-[11px]">{selectedCert.dateOrPeriod}</span>
+                  </div>
+                </div>
+
+                <div className="space-y-1 mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#EFEADF] text-[#7A6445] border border-[#DFD6C3]">
+                      {selectedCert.category}
+                    </span>
+                    <span className="text-xs text-[#8C642A] font-medium">{selectedCert.highlightText}</span>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-[#2D2820]">
+                    {selectedCert.title}
+                  </h3>
+                </div>
+
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#7A6E5D] mb-1">Award Overview & Details</h4>
+                <p className="text-xs sm:text-sm text-[#5C5346] leading-relaxed mb-6">
+                  {selectedCert.details}
+                </p>
+
+                <div className="flex items-center justify-between pt-3 border-t border-[#EFEADF]">
+                  <div className="flex items-center gap-1.5 text-xs text-[#7A6445]">
+                    <CheckCircle2 className="w-4 h-4 text-[#437A4C]" />
+                    <span>Authentic Credential Record (Verified)</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCert(null)}
+                    className="px-5 py-2.5 bg-[#3B3226] hover:bg-[#2B241A] text-[#FFFDF9] text-xs font-semibold rounded-lg transition-colors cursor-pointer shadow-sm active:scale-95"
+                  >
+                    Close Certificate
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          );
+        })()}
       </div>
     </section>
   );
