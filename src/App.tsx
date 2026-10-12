@@ -30,9 +30,9 @@ export default function App() {
       <main className="flex-grow">
         <Hero onContactClick={handleScrollToContact} />
         <About />
-        <Skills />
-        <Experience />
         <Education />
+        <Experience />
+        <Skills />
         <Tools />
         <Certifications />
         <Contact />

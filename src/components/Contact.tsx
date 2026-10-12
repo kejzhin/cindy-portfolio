@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { Mail, MessageCircle, Phone, Video, Copy, Check, Download, ExternalLink, Clock, MapPin, Sparkles } from 'lucide-react';
+import { Mail, MessageCircle, Phone, Copy, Check, Download, ExternalLink, Clock, MapPin, Sparkles } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+
+const LinkedInIcon = ({ className = 'w-6 h-6' }: { className?: string }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.79v8.37H6.46v-8.37M7.86 6.81a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z" />
+  </svg>
+);
 
 export const Contact: React.FC = () => {
   const { contactInfo, personalInfo } = portfolioData;
@@ -25,8 +31,8 @@ export const Contact: React.FC = () => {
       'TITLE:US Healthcare BPO Specialist & Appointment Setter',
       `EMAIL;TYPE=INTERNET,PREF:${contactInfo.email}`,
       `TEL;TYPE=CELL,VOICE:${contactInfo.phoneRaw}`,
-      `URL:${contactInfo.skypeInviteUrl}`,
-      'NOTE:3+ years US Healthcare BPO, EpiSource Top Appointment Setter (256 Schedules), Real Estate Sales.',
+      `URL:${contactInfo.linkedinUrl}`,
+      'NOTE:More than 5 years US Healthcare BPO, EpiSource Top Appointment Setter (256 Scheduled), Real Estate Sales.',
       'END:VCARD',
     ].join('\r\n');
 
@@ -46,14 +52,11 @@ export const Contact: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
-          <div className="text-xs font-semibold text-amber-800 tracking-wider uppercase mb-2">
-            07. Direct Reachout
-          </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-stone-900 text-balance">
             Contact Information
           </h2>
           <p className="mt-2 text-stone-600 text-base leading-relaxed">
-            Reach out directly via email, WhatsApp, mobile, or Skype. No forms required — instant response guaranteed.
+            Reach out directly via email, WhatsApp, mobile, or LinkedIn. No forms required — instant response guaranteed.
           </p>
         </div>
 
@@ -217,22 +220,22 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* 3. Skype Card */}
+            {/* 3. LinkedIn Card */}
             <div className="bg-white rounded-2xl border border-stone-200/90 p-5 sm:p-6 shadow-xs hover:border-stone-300 transition-colors">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
-                    <Video className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0A66C2] flex items-center justify-center shrink-0">
+                    <LinkedInIcon className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
-                      Skype Direct Connect
+                      LinkedIn Profile
                     </div>
-                    <div className="text-base sm:text-lg font-bold text-stone-900 font-mono truncate max-w-xs sm:max-w-sm">
-                      join.skype.com/invite
+                    <div className="text-base sm:text-lg font-bold text-stone-900 truncate max-w-xs sm:max-w-md">
+                      Allan Vincent Balasbas
                     </div>
                     <p className="text-xs text-stone-500 mt-0.5">
-                      Available for immediate video consultations and introductory calls.
+                      Connect on LinkedIn for endorsements, verified track record, and direct messaging.
                     </p>
                   </div>
                 </div>
@@ -240,11 +243,11 @@ export const Contact: React.FC = () => {
                 <div className="flex items-center gap-2 shrink-0">
                   <button
                     type="button"
-                    onClick={() => handleCopy(contactInfo.skypeInviteUrl, 'skype')}
+                    onClick={() => handleCopy(contactInfo.linkedinUrl, 'linkedin')}
                     className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-stone-700 bg-stone-100 hover:bg-stone-200 rounded-lg transition-colors cursor-pointer"
-                    title="Copy Skype Link"
+                    title="Copy LinkedIn Link"
                   >
-                    {copiedKey === 'skype' ? (
+                    {copiedKey === 'linkedin' ? (
                       <>
                         <Check className="w-3.5 h-3.5 text-emerald-600" />
                         <span className="text-emerald-700 font-semibold">Copied</span>
@@ -258,12 +261,12 @@ export const Contact: React.FC = () => {
                   </button>
 
                   <a
-                    href={contactInfo.skypeInviteUrl}
+                    href={contactInfo.linkedinUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-sky-600 hover:bg-sky-700 rounded-lg transition-colors"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-[#0A66C2] hover:bg-[#004182] rounded-lg transition-colors"
                   >
-                    <span>Open Skype</span>
+                    <span>View LinkedIn</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>

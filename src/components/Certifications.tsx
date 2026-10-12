@@ -18,9 +18,6 @@ export const Certifications: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
-            <div className="text-xs font-semibold text-amber-800 tracking-wider uppercase mb-2">
-              06. Honors & Credentials
-            </div>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-stone-900 text-balance">
               Certifications & Achievements
             </h2>

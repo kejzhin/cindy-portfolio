@@ -28,9 +28,6 @@ export const Skills: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
-          <div className="text-xs font-semibold text-amber-800 tracking-wider uppercase mb-2">
-            02. Core Competencies
-          </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-stone-900 text-balance">
             Personal Skills
           </h2>
@@ -83,9 +80,6 @@ export const Skills: React.FC = () => {
                 <h3 className="text-xl font-bold text-stone-900">{selectedSkill.title}</h3>
                 <p className="text-xs text-stone-500">{selectedSkill.shortDesc}</p>
               </div>
-            </div>
-            <div className="text-xs text-stone-500">
-              Proficiency: <span className="font-bold text-stone-900">Expert / Production Ready</span>
             </div>
           </div>
 

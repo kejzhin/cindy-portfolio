@@ -36,6 +36,15 @@ export const Footer: React.FC = () => {
             </a>
             <span aria-hidden="true">·</span>
             <span>{portfolioData.contactInfo.phone}</span>
+            <span aria-hidden="true">·</span>
+            <a
+              href={portfolioData.contactInfo.linkedinUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-stone-300 transition-colors"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>

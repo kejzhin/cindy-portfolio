@@ -42,16 +42,15 @@ export const portfolioData = {
     preferredName: 'Cindy',
     title: 'US Healthcare BPO Specialist & Appointment Setter',
     secondaryTitle: 'Licensed Real Estate Sales Professional & BSIS Graduate',
-    age: 27,
     location: 'Philippines',
     workMode: 'Remote / US Shift Compatible (EST / PST / CST)',
     summary:
-      "Hi, my name is Allan Vincent Balasbas (Cindy). I am 27 years old with 3 years and 8 months of dedicated experience in the BPO industry handling US Healthcare accounts. Specialized in medical records retrieval (MRR), high-touch appointment setting, patient benefits verification, and real estate sales.",
+      "Hi, my name is Allan Vincent Balasbas (Cindy) with more than 5 years of dedicated experience in the BPO industry handling US Healthcare accounts. Specialized in medical records retrieval (MRR), high-touch appointment setting, patient benefits verification, and real estate sales.",
     quote:
       "I have many more to discuss on how I can help you with your project. Feel free to reach out.",
     metrics: [
-      { label: 'BPO Experience', value: '3 Yrs 8 Mos', sub: 'US Healthcare accounts' },
-      { label: 'Top Performer', value: '256 Schedules', sub: 'EpiSource Top Appointment Setter' },
+      { label: 'BPO Experience', value: '5+ Years', sub: 'US Healthcare accounts' },
+      { label: 'Top Performer', value: '256 Scheduled', sub: 'EpiSource Top Appointment Setter' },
       { label: 'Real Estate Sales', value: '₱18.6M+ TCP', sub: 'Condominium properties closed' },
       { label: 'Education', value: 'BSIS', sub: 'Bachelor in Information Systems' },
     ],
@@ -114,7 +113,7 @@ export const portfolioData = {
       role: 'Healthcare Customer Service Specialist',
       category: 'healthcare',
       organizationContext: 'US Healthcare Accounts (BPO)',
-      duration: '3 Years 8 Months Total BPO Experience',
+      duration: 'More than 5 Years Total BPO Experience',
       summary:
         'Answer customer service calls promptly, ensuring patients and providers receive necessary information with empathy and accuracy. Knowledgeable customer service professional with extensive experience in the healthcare sector, dedicated to maintaining customer satisfaction and company service standards.',
       highlights: [
@@ -124,24 +123,24 @@ export const portfolioData = {
         'Processing payments of health plan insurance and maintaining meticulous call documentation',
         'Multi-tasking across multiple software tools and patient data repositories',
       ],
-      toolsUsed: ['Salesforce', 'EMR/OPM', 'Slack', 'Gmail', 'Webex'],
+      toolsUsed: ['Salesforce', 'EMR/OPM', 'Talkdesk', 'Slack', 'Gmail', 'Webex'],
     },
     {
       id: 'appointment-setter',
       role: 'Medical Appointment Setting Specialist',
       category: 'appointment',
       organizationContext: 'EpiSource & Optum MRR Campaigns',
-      duration: '2 Years Dedicated Experience',
+      duration: '4 Years Dedicated Experience',
       summary:
         'Conducted outbound calls to hospitals, specialized clinics, and medical facilities to retrieve patient medical records and charts needed for Risk Adjustment Review and HEDIS Review campaigns.',
       highlights: [
-        'Achieved 256 confirmed site schedules from July to October 2024, earning Top Appointment Setter recognition',
+        'Achieved 256 scheduled site visits from July to October 2024, earning Top Appointment Setter recognition',
         'Transmitted medical record requests via Fax, Email, and Mail to initiate chart retrieval',
         'Negotiated and confirmed scheduled appointments for chart release dates with medical records directors',
         'Managed accurate data entry and tracking inside EMR (OPM) and Salesforce',
         'Certified in OC-MRR Training under EpiSource & Optum Learning Solutions (MCK Wave 2 - 2024)',
       ],
-      toolsUsed: ['Salesforce', 'EMR (OPM)', 'Microsoft Teams', 'Dropbox', 'Zoom'],
+      toolsUsed: ['Salesforce', 'EMR (OPM)', 'Talkdesk', 'Microsoft Teams', 'Dropbox', 'Zoom'],
     },
     {
       id: 'email-specialist',
@@ -242,6 +241,12 @@ export const portfolioData = {
       description: 'Optum Provider Management and Electronic Medical Records chart retrieval system.',
       badge: 'Specialized',
     },
+    {
+      name: 'Talkdesk',
+      category: 'Cloud Contact Center',
+      description: 'Enterprise cloud contact center platform for high-volume inbound queue routing and outbound calling.',
+      badge: 'Proficient',
+    },
   ] as ToolItem[],
 
   certifications: [
@@ -251,9 +256,9 @@ export const portfolioData = {
       issuer: 'EpiSource',
       recipient: 'Cindy Balasbas',
       dateOrPeriod: 'July to October 2024',
-      highlightText: '256 Confirmed Site Schedules',
+      highlightText: '256 Scheduled Site Visits',
       details:
-        'Certificate of Appreciation proudly presented for achieving 256 Site Schedules from July to October 2024, recognized as the Top Appointment Setter for the entire campaign period.',
+        'Certificate of Appreciation proudly presented for achieving 256 scheduled site visits from July to October 2024, recognized as the Top Appointment Setter for the entire campaign period.',
       badgeColor: 'amber',
       category: 'Healthcare BPO',
     },
@@ -311,8 +316,8 @@ export const portfolioData = {
     email: 'ccindycervantes.3s@gmail.com',
     phone: '+63 961 942 7143',
     phoneRaw: '+639619427143',
-    skypeInviteUrl: 'https://join.skype.com/invite/wMibEBZUeQwCt',
     whatsappUrl: 'https://wa.me/639619427143',
+    linkedinUrl: 'https://www.linkedin.com/in/allan-vincent-balasbas-17bba2310',
     location: 'Philippines',
     availability: 'Open for Immediate Hire · Full-time / Part-time / Contract',
   },

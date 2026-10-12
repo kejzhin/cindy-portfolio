@@ -24,9 +24,6 @@ export const Education: React.FC = () => {
     <section id="education" className="py-16 md:py-20 border-b border-stone-200 bg-stone-50/40">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-12">
-          <div className="text-xs font-semibold text-amber-800 tracking-wider uppercase mb-2">
-            04. Academic Background
-          </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-stone-900 text-balance">
             Education
           </h2>
