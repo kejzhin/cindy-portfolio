@@ -15,6 +15,7 @@ import { Certifications } from './components/Certifications';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ScrollProgressBar } from './components/ScrollProgressBar';
+import bgTexture from './assets/images/beige_theme_bg_1791798783667.jpg';
 
 export default function App() {
   const handleScrollToContact = () => {
@@ -25,13 +26,23 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF9F5] text-stone-800 font-sans overflow-x-hidden w-full max-w-full">
+    <div className="relative min-h-screen flex flex-col bg-[#FAF9F5] text-stone-800 font-sans overflow-x-hidden w-full max-w-full">
+      {/* Fixed Ambient Background Texture matching the beige theme */}
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-10 mix-blend-multiply overflow-hidden">
+        <img
+          src={bgTexture}
+          alt=""
+          referrerPolicy="no-referrer"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
       {/* Scroll Progress Bar & Floating Back-to-Top Button */}
       <ScrollProgressBar />
 
       <Navbar onContactClick={handleScrollToContact} />
 
-      <main className="flex-grow w-full max-w-full overflow-x-hidden">
+      <main className="relative z-10 flex-grow w-full max-w-full overflow-x-hidden">
         <Hero onContactClick={handleScrollToContact} />
         <About />
         <Education />

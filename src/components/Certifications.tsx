@@ -9,7 +9,7 @@ import cert3Img from '../assets/images/cert3.jpg';
 import cert4Img from '../assets/images/cert4.jpg';
 import cert5Img from '../assets/images/cert5.jpg';
 
-const certImages = [cert1Img, cert2Img, cert3Img, cert4Img, cert5Img];
+const certImages = [cert2Img, cert1Img, cert3Img, cert4Img, cert5Img];
 
 export const Certifications: React.FC = () => {
   const { certifications } = portfolioData;
