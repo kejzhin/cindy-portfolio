@@ -2,7 +2,6 @@ import React from 'react';
 import { ArrowDown } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import profileImg from '../assets/images/profile.png';
-import workspaceBg from '../assets/images/healthcare_bpo_workspace_1791753497012.jpg';
 
 interface HeroProps {
   onContactClick: () => void;
@@ -46,25 +45,14 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             </ScrollReveal>
           </div>
 
-          {/* Right Column: Full-Body Professional Portrait with Background Picture Backdrop */}
+          {/* Right Column: Profile Picture (No background, No shapes) */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <ScrollReveal delay={200} duration={700} className="w-full max-w-xs sm:max-w-sm">
-              <div className="relative w-full flex justify-center items-end min-h-[480px]">
-                {/* Background Picture Backdrop (Real Photo, Not a Flat Shape) */}
-                <div className="absolute inset-0 bottom-2 rounded-3xl overflow-hidden shadow-md border border-stone-200/80">
-                  <img
-                    src={workspaceBg}
-                    alt="Healthcare & BPO Workspace Background"
-                    className="w-full h-full object-cover filter brightness-[0.95] blur-[0.5px]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 via-stone-900/10 to-transparent" />
-                </div>
-
-                {/* Full-Body Portrait Standing in Front */}
+              <div className="relative w-full flex justify-center items-end">
                 <img
                   src={profileImg}
                   alt="Allan Vincent Balasbas"
-                  className="relative z-10 w-full max-h-[520px] object-contain select-none transition-transform duration-300 hover:scale-[1.02]"
+                  className="w-full max-h-[520px] object-contain select-none transition-transform duration-300 hover:scale-[1.02]"
                 />
               </div>
             </ScrollReveal>
